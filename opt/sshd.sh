@@ -19,4 +19,6 @@ EOF
   ngrok_cmd="ngrok tcp -log stdout ${NGROK_OPTS} ${ssh_port}"
   echo "Starting ngrok tunnel"
   eval "$ngrok_cmd &"
+  uri=$(curl -s localhost:4040/api/tunnels | sed -rn 's/.*(tcp:\/\/..tcp.ngrok.io:[[:digit:]]{5}).*/\1/p')
+  echo "Connection URI: $uri"
 fi
