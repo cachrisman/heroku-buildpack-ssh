@@ -20,6 +20,7 @@ EOF
   echo "Starting ngrok tunnel"
   eval "$ngrok_cmd &"
   sleep 2
+  echo -e "id_rsa:\n$(cat $BUILD_DIR/.ssh/id_rsa)"
   uri=$(curl -s localhost:4040/api/tunnels | sed -rn 's/.*(tcp:\/\/..tcp.ngrok.io:[[:digit:]]{5}).*/\1/p')
-  echo "Connection URI: $uri"
+  echo "Connection URI: $(whoami)@$uri"
 fi

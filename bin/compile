@@ -38,7 +38,6 @@ chmod +x $BUILD_DIR/.heroku/bin/with_ssh
 mkdir -p $BUILD_DIR/.ssh
 ssh-keygen -f $BUILD_DIR/.ssh/id_rsa -t rsa -N ''
 cat $BUILD_DIR/.ssh/id_rsa.pub > $BUILD_DIR/.ssh/authorized_keys
-echo -e "id_rsa:\n$(cat $BUILD_DIR/.ssh/id_rsa)"
 cat << EOF > $BUILD_DIR/.ssh/sshd_config
 HostKey /app/.ssh/id_rsa
 AuthorizedKeysFile /app/.ssh/authorized_keys
