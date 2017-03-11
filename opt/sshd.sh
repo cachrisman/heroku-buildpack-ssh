@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$DYNO" != *run.* ] && [ "$SSH_ENABLED" = "true" ]; then
+if [[ "$DYNO" != *run.* ]] && [ "$SSH_ENABLED" = "true" ]; then
   ssh_port=${SSH_PORT:-"2222"}
 
   if [ -n "$NGROK_API_TOKEN" ]; then
